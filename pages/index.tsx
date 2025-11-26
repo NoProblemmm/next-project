@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
+import A from "../components/link/A";
 
 const Index: React.FC = () => {
   return (
@@ -10,9 +11,9 @@ const Index: React.FC = () => {
       </Head>
       <div>
         <div className="nav">
-          <Link href="/home">Home</Link>
+          <A link="/home" title="Home" />
         </div>
-        <h1>Здарова</h1>
+        <h1>Hello</h1>
         <style jsx>
           {`
             .nav {
