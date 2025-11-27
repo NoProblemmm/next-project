@@ -19,7 +19,7 @@
     "**/*.mts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/index.ts"
+    "pages/page.tsx"
   ],
   "exclude": ["node_modules"]
 }
