@@ -7,6 +7,34 @@
   margin: 20px 30% 0 30%;
   border: 1px solid #ffae00;
   box-shadow: 0px 5px 20px 2px #ff7300b0;
+  transition: all 0.3s ease-in-out;
+  z-index: 100;
+}
+
+.nactive {
+  position: sticky;
+  top: 20px;
+  height: 70px;
+  opacity: 0.75;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin: 20px 5% 0 5%;
+  z-index: 5;
+}
+.nactive:hover {
+  opacity: 1;
+  background: rgb(255, 187, 0);
+  box-shadow: 0px 5px 20px 2px #e06500;
+}
+
+.nactive > .search > .searchInput {
+  width: 10%;
+}
+
+.nactive > .search > .searchInput:focus {
+  width: 30%;
 }
 
 .search {

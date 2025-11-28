@@ -1,10 +1,40 @@
 import Head from "next/head";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import A from "../components/link/A";
 import style from "../styles/index.module.css";
 import { Layout } from "../components/layout/Layout";
 
 const Index: React.FC = ({ products }: any) => {
+  const navRef = useRef(null);
+  useEffect(() => {
+    let lastScrollPosition =
+      window.pageYOffset || document.documentElement.scrollTop;
+
+    const handleScroll = () => {
+      const currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop;
+
+      if (navRef.current === null) return;
+
+      if (
+        currentScrollPosition > lastScrollPosition &&
+        currentScrollPosition >= 10
+      ) {
+        navRef.current.classList.add(style.nactive);
+      } else if (currentScrollPosition < 10) {
+        navRef.current.classList.remove(style.nactive);
+      }
+
+      lastScrollPosition =
+        currentScrollPosition <= 0 ? 0 : currentScrollPosition;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <>
       <Head>
@@ -18,7 +48,7 @@ const Index: React.FC = ({ products }: any) => {
         />
       </Head>
       <div>
-        <nav className={style.navigate}>
+        <nav ref={navRef} className={style.navigate}>
           <A link="/home" title="Home" />
           <div className={style.search}>
             <input className={style.searchInput} placeholder="Search..." />
