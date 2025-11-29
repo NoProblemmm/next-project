@@ -1,10 +1,10 @@
 import Head from "next/head";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import A from "../components/link/A";
 import style from "../styles/index.module.css";
 import { Layout } from "../components/layout/Layout";
 
-const Index: React.FC = ({ products }: any) => {
+const Index = ({ products }: any) => {
   const navRef = useRef(null);
   useEffect(() => {
     let lastScrollPosition =
@@ -18,10 +18,10 @@ const Index: React.FC = ({ products }: any) => {
 
       if (
         currentScrollPosition > lastScrollPosition &&
-        currentScrollPosition >= 10
+        currentScrollPosition >= 1
       ) {
         navRef.current.classList.add(style.nactive);
-      } else if (currentScrollPosition < 10) {
+      } else if (currentScrollPosition < 1) {
         navRef.current.classList.remove(style.nactive);
       }
 
